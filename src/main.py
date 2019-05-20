@@ -21,8 +21,8 @@ if __name__=="__main__":
     bg = pygame.image.load(os.path.join(RESOURCE_DIR,"background.jpg"))
 
 #    game_over = pygame.font.SysFont("courier",70).render("Game over!!!",1,DARKRED,DARKGREEN)
-    game_over = pygame.image.load(os.path.join(RESOURCE_DIR,"game over01.jpg"))
-
+    game_over = pygame.image.load(os.path.join(RESOURCE_DIR,"gameover.png"))
+    game_over = pygame.transform.scale(game_over,(int(0.25*game_over.get_width()),int(0.25*game_over.get_height())))
     bird = FlappyBird((200,200),screen)
     gates = GateSpawner(screen)
     score_board = ScoreBoard(screen)
@@ -43,7 +43,7 @@ if __name__=="__main__":
             bird.update()
             score_board.update(bird)
         else:
-            screen.blit(game_over,(50,200))
+            screen.blit(game_over,(150,200))
             pygame.mixer.music.stop()
         pygame.display.flip()
         time.sleep(DELAY)
