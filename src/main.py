@@ -18,7 +18,8 @@ if __name__=="__main__":
     pygame.init()
     pygame.display.set_caption("Flappy bird")
     screen = pygame.display.set_mode(SCREENDIM)
-    bg = pygame.image.load(os.path.join(RESOURCE_DIR,"background.jpg"))
+#    bg = pygame.image.load(os.path.join(RESOURCE_DIR,"background.jpg"))
+    bg = pygame.image.load(os.path.join(RESOURCE_DIR,"bg_crop_blur.png"))
 
 #    game_over = pygame.font.SysFont("courier",70).render("Game over!!!",1,DARKRED,DARKGREEN)
     game_over = pygame.image.load(os.path.join(RESOURCE_DIR,"gameover.png"))
@@ -38,7 +39,8 @@ if __name__=="__main__":
                 exit(0)
             bird.handle(key)
         if bird.alive:
-            screen.blit(bg,(0,-700))
+#            screen.blit(bg,(0,-700))
+            screen.blit(bg,(0,0))
             gates.update(bird)
             bird.update()
             score_board.update(bird)
